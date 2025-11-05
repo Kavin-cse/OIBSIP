@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribute to Dr. A.P.J. Abdul Kalam</title>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 107, 0.6); }
+            50% { box-shadow: 0 0 40px rgba(255, 107, 107, 1); }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 20px 80px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+        }
+
+        header h1 {
+            font-size: 4em;
+            margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            font-size: 1.5em;
+            font-style: italic;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.3s both;
+            position: relative;
+            z-index: 1;
+        }
+
+        .photo-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3), transparent);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .photo-section::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -150px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        .photo-container {
+            display: inline-block;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255,255,255,0.3);
+            animation: fadeInUp 1s ease 0.5s both, glow 3s ease-in-out infinite;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-container:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .photo-container img {
+            width: 380px;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .photo-caption {
+            margin-top: 20px;
+            font-size: 1.4em;
+            color: white;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease 0.7s both;
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+        }
+
+        .content {
+            padding: 60px 40px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            animation: fadeInUp 1s ease;
+            opacity: 0;
+        }
+
+        .section.visible {
+            opacity: 1;
+        }
+
+        .section:nth-child(odd) {
+            animation: slideInLeft 1s ease forwards;
+        }
+
+        .section:nth-child(even) {
+            animation: slideInRight 1s ease forwards;
+        }
+
+        .section h2 {
+            color: #2c5364;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-left: 8px solid #ff6b6b;
+            padding-left: 20px;
+            font-family: 'Georgia', serif;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd700);
+            transition: width 0.5s ease;
+        }
+
+        .section:hover h2::after {
+            width: 200px;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 1.15em;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            font-style: italic;
+            font-size: 1.4em;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .quote-box::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 120px;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .quote-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .quote-box:hover::after {
+            left: 100%;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .achievement-card:hover::before {
+            top: -100%;
+            right: -100%;
+        }
+
+        .achievement-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .achievement-card p {
+            position: relative;
+            z-index: 1;
+            color: rgba(255,255,255,0.95);
+        }
+
+        .timeline {
+            border-left: 5px solid transparent;
+            border-image: linear-gradient(180deg, #667eea, #764ba2, #f093fb) 1;
+            padding-left: 40px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -48px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b6b, #ffd700);
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #667eea;
+            animation: pulse 2s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-item h3 {
+            color: #2c5364;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .timeline-item p {
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            text-align: center;
+            padding: 50px 30px;
+            font-size: 1.2em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '🚀';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        footer p {
+            margin: 15px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #ff6b6b, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .scroll-indicator:hover {
+            transform: scale(1.1);
+        }
+
+        .scroll-indicator::before {
+            content: '↑';
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            
+            .section h2 {
+                font-size: 2em;
+            }
+            
+            .photo-container img {
+                width: 300px;
+                height: 380px;
+            }
+            
+            .achievements {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Dr. A.P.J. Abdul Kalam</h1>
+            <p>The Missile Man of India | People's President | Inspiration to Millions</p>
+        </header>
+
+        <div class="photo-section">
+            <div class="photo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/A._P._J._Abdul_Kalam.jpg" alt="Dr. A.P.J. Abdul Kalam">
+            </div>
+            <div class="photo-caption">
+                "Dream, dream, dream. Dreams transform into thoughts and thoughts result in action."
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>A Visionary Leader</h2>
+                <p>
+                    Dr. Avul Pakir Jainulabdeen Abdul Kalam was not just a scientist or a president; he was a beacon of hope for millions of Indians. Born on October 15, 1931, in Rameswaram, Tamil Nadu, he rose from humble beginnings to become one of India's most respected figures. His journey from selling newspapers to becoming the 11th President of India is a testament to the power of dreams, dedication, and determination.
+                </p>
+                <p>
+                    What makes Dr. Kalam truly special is his unwavering belief in the youth of India. He dedicated his life to inspiring young minds, encouraging them to dream big and work tirelessly towards those dreams. His famous quote, "Dream is not that which you see while sleeping, it is something that does not let you sleep," embodies his philosophy of life.
+                </p>
+            </div>
+
+            <div class="quote-box">
+                "You have to dream before your dreams can come true."
+                <br><br>
+                - Dr. A.P.J. Abdul Kalam
+            </div>
+
+            <div class="section">
+                <h2>Why I Admire Him</h2>
+                <p>
+                    Dr. Kalam's humility despite his monumental achievements is what I admire most. He never forgot his roots and remained accessible to everyone, especially students. His simplicity in lifestyle, his vegetarian diet, and his practice of carrying his own luggage showed that greatness doesn't require ostentation.
+                </p>
+                <p>
+                    His contribution to India's defense and space programs transformed the nation's technological capabilities. As the architect of India's missile program and the Pokhran-II nuclear tests, he strengthened India's position on the global stage. Yet, he always advocated for <span class="highlight">peaceful applications of science</span> and believed that technology should serve humanity.
+                </p>
+                <p>
+                    What truly sets him apart is his vision for India. His book "India 2020: A Vision for the New Millennium" outlined a roadmap for transforming India into a developed nation. He didn't just dream about a better India; he worked tirelessly to make it a reality and inspired millions to join him in this mission.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>Major Achievements</h2>
+                <div class="achievements">
+                    <div class="achievement-card">
+                        <h3>🚀 Missile Man</h3>
+                        <p>Played pivotal role in developing India's missile technology including Agni and Prithvi missiles</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h3>🏆 Bharat Ratna</h3>
+                        <p>Received India's highest civilian honor in 1997 for his contributions to science</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h3>👔 People's President</h3>
+                        <p>Served as the 11th President of India from 2002 to 2007 with grace and dignity</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h3>📚 Inspiring Author</h3>
+                        <p>Wrote numerous books including "Wings of Fire" that continue to inspire millions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                "Excellence is a continuous process and not an accident."
+                <br><br>
+                - Dr. A.P.J. Abdul Kalam
+            </div>
+
+            <div class="section">
+                <h2>Life Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>1931</h3>
+                        <p>Born in Rameswaram, Tamil Nadu, in a modest family</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>1960</h3>
+                        <p>Joined ISRO and worked on India's first satellite launch vehicle</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>1980s-90s</h3>
+                        <p>Led India's missile development program, earning the title "Missile Man"</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>1997</h3>
+                        <p>Awarded Bharat Ratna, India's highest civilian honor</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>2002-2007</h3>
+                        <p>Served as the 11th President of India, beloved by all</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>2015</h3>
+                        <p>Passed away while doing what he loved most - teaching students at IIM Shillong</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                "Let us sacrifice our today so that our children can have a better tomorrow."
+                <br><br>
+                - Dr. A.P.J. Abdul Kalam
+            </div>
+
+            <div class="section">
+                <h2>His Lasting Legacy</h2>
+                <p>
+                    Dr. Kalam passed away on July 27, 2015, while delivering a lecture to students at IIM Shillong - a fitting end for a man who lived to inspire young minds. His death was mourned across the nation, transcending political, religious, and social boundaries. He proved that one person, armed with knowledge, dedication, and compassion, can indeed change the world.
+                </p>
+                <p>
+                    Today, his teachings continue to inspire millions. His emphasis on education, scientific temperament, and moral values remains relevant. He showed us that success without humility is hollow, and that true greatness lies in lifting others as we rise. Dr. Kalam's life is a reminder that our circumstances don't define us; our dreams and determination do.
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>In Memory of Dr. A.P.J. Abdul Kalam</strong></p>
+            <p>1931 - 2015</p>
+            <p>"A teacher who inspired a nation, a scientist who secured our future, and a human who touched our hearts."</p>
+        </footer>
+    </div>
+
+    <div class="scroll-indicator" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></div>
+
+    <script>
+        // Create floating stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 2 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Show/hide scroll button
+        const scrollBtn = document.querySelector('.scroll-indicator');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollBtn.style.opacity = '1';
+            } else {
+                scrollBtn.style.opacity = '0';
+            }
+        });
+    </script>
+</body>
+</html>
