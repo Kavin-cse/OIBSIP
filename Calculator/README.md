@@ -27,3 +27,9 @@ This project features a glowing neon interface with smooth animations and full k
 ## 📸 Screenshot
 
 <img width="1919" height="1079" alt="Screenshot 2025-11-06 181717" src="https://github.com/user-attachments/assets/6b3663df-1969-41a1-8916-12d62928dd7c" />
+
+## 🙌 Acknowledgment
+
+- This project was developed as part of my learning experience with Oasis Infobyte
+ under the OIBSIP Program.
+- I’m truly grateful to the Oasis Infobyte team for providing this wonderful opportunity to enhance my front-end development skills through real-world, hands-on projects.
