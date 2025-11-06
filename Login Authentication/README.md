@@ -28,4 +28,8 @@ This project simulates a secure authentication portal with a glowing neon interf
 ## 📸 Screenshot
 <img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/16c5d4d9-bfc9-4af0-bd80-a433d256efc6" />
 
+## 🙌 Acknowledgment
 
+- This project was created as part of my development journey with Oasis Infobyte
+ under the OIBSIP Program.
+- I’m thankful to Oasis Infobyte for giving me the opportunity to learn by doing and for motivating students to build real-world web applications through hands-on experience.
